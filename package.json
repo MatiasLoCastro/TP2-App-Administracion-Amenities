@@ -1,0 +1,29 @@
+{
+  "type": "module",
+  "name": "tp2-app-administracion-amenities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "compile": "tsc && node src/index.js",
+    "dev": "nodemon --watch src/ --exec \"npm run compile\" --verbose -e ts",
+    "testcompile": "tsc && node test/test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mongodb": "^4.7.0",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "typescript": "^4.7.3"
+  }
+}
