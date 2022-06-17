@@ -1,5 +1,5 @@
 import './Reserva';
-class UserApp {
+export class UserApp {
     constructor(nombre, apellido, dni, password, depto, email, reservas) {
         this.nombre = nombre;
         this.apellido = apellido;

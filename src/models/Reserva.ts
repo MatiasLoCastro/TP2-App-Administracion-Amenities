@@ -1,16 +1,18 @@
-import e from "express";
-import Amenitie from "./Amenitie";
+import express from "express";
+import { Amenity } from "./Amenity";
 
 export class Reserva {
 
-    amenitie: Amenitie
+    amenity: Amenity
     estado: string
-    fecha: Date
+    fecha: string
+    id: number
 
-    constructor(amenitie: Amenitie, estado: string, fecha: Date) {
-        this.amenitie = amenitie;
+    constructor(amenity: Amenity, estado: string, fecha: string, id: number) {
+        this.amenity = amenity;
         this.estado = estado;
         this.fecha = fecha;
+        this.id = id;
     }
 }
 

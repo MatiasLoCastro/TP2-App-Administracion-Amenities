@@ -1,7 +1,7 @@
 import './Reserva'
 import { Reserva } from './Reserva'
 
-class UserApp {
+export class UserApp {
 
     nombre: string
     apellido: string

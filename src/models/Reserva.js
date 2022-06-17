@@ -1,7 +1,8 @@
 export class Reserva {
-    constructor(amenitie, estado, fecha) {
-        this.amenitie = amenitie;
+    constructor(amenity, estado, fecha, id) {
+        this.amenity = amenity;
         this.estado = estado;
         this.fecha = fecha;
+        this.id = id;
     }
 }
