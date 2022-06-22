@@ -8,8 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { Amenity } from '../models/Amenity.js';
+//import Dao from './Dao.js'
 import { ConectarMongodb } from './ConectarMongodb.js';
-class AmenityDaoMongodb {
+class AmenityDaoMongodb /* implements Dao<Amenity, string> */ {
     constructor() {
         this.conectarMongodb = new ConectarMongodb();
     }
@@ -52,7 +53,7 @@ class AmenityDaoMongodb {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this.conectarMongodb.conectar();
             const collection = db.collection('amenities');
-            const findResult = yield collection.deleteOne({ id: element.id });
+            const findResult = yield collection.deleteOne({ id: element });
             yield this.conectarMongodb.desconectar();
             let rta = false;
             if (findResult.deletedCount > 0) {

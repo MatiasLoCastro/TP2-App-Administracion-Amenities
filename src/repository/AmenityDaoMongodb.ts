@@ -1,8 +1,8 @@
 import { Amenity } from '../models/Amenity.js';
-import Dao from './Dao.js'
+//import Dao from './Dao.js'
 import { ConectarMongodb } from './ConectarMongodb.js'
 
-class AmenityDaoMongodb implements Dao<Amenity, string> {
+class AmenityDaoMongodb /* implements Dao<Amenity, string> */ {
 
     private conectarMongodb: ConectarMongodb = new ConectarMongodb();
 
@@ -37,10 +37,10 @@ class AmenityDaoMongodb implements Dao<Amenity, string> {
         return Promise.resolve(amenity);
     }
 
-    async delete(element: Amenity): Promise<boolean> {
+    async delete(element: string): Promise<boolean> {
         const db = await this.conectarMongodb.conectar();
         const collection = db.collection('amenities');
-        const findResult = await collection.deleteOne({ id: element.id });
+        const findResult = await collection.deleteOne({ id: element });
         await this.conectarMongodb.desconectar();
         let rta = false;
         if (findResult.deletedCount > 0) {

@@ -19,10 +19,28 @@ class ReservaController {
         return __awaiter(this, void 0, void 0, function* () {
             const reservaDaoMongodb = new ReservaDaoMongodb();
             if (yield reservaDaoMongodb.delete(req.params.id)) {
-                res.status(201).send({ mensaje: "Registro eliminado para reserva: " + req.params.id });
+                res.status(201).send({ mensaje: "Registro eliminado para reserva id: " + req.params.id });
             }
             else {
-                res.status(400).send({ mensaje: "no se encuentran registros para " + req.params.id });
+                res.status(400).send({ mensaje: "no se encuentran registros para id: " + req.params.id });
+            }
+        });
+    }
+    add(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const reservaDaoMongodb = new ReservaDaoMongodb();
+            res.status(200).send(yield reservaDaoMongodb.add(req.body));
+        });
+    }
+    get(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const reservaDaoMongodb = new ReservaDaoMongodb();
+            const rta = yield reservaDaoMongodb.get(req.params.id);
+            if (rta.id != -1) {
+                res.status(200).send(rta);
+            }
+            else {
+                res.status(404).send({ mensaje: "no se encuentran registros para " + req.params.id });
             }
         });
     }
