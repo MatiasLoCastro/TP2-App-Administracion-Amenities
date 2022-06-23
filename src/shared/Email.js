@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-class Email {
+export class Email {
     enviar(para, asunto, cuerpoMensaje, pathArchivoAdjunto) {
         return new Promise((resolve, reject) => {
             var transporter = nodemailer.createTransport({
@@ -8,14 +8,14 @@ class Email {
                 service: 'yahoo',
                 secure: false,
                 auth: {
-                    user: 'adrianutnnode2019@yahoo.com',
-                    pass: 'czrextadalosyqhy'
+                    user: 'nt2_final@yahoo.com',
+                    pass: 'nt2Final.'
                 },
                 debug: false,
                 logger: true
             });
             const mailOptions = {
-                from: 'adrianutnnode2019@yahoo.com',
+                from: 'nt2_final@yahoo.com',
                 to: para,
                 subject: asunto,
                 text: cuerpoMensaje,
@@ -32,4 +32,4 @@ class Email {
         });
     }
 }
-export { Email };
+//export default {Email}

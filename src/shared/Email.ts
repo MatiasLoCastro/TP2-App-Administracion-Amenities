@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 
-class Email {
+export class Email {
 
     enviar(para: string, asunto: string, cuerpoMensaje: string, pathArchivoAdjunto: string) : Promise<any> {
         return new Promise( (resolve,reject) => {
@@ -10,17 +10,17 @@ class Email {
                 service:'yahoo',
                 secure: false,                
                 auth: {
-                    user: 'adrianutnnode2019@yahoo.com',
-                    pass: 'czrextadalosyqhy'
+                    user: 'nt2_final@yahoo.com',
+                    pass: 'nt2Final.'
                 },
                 debug: false,
                 logger: true 
             });
             const mailOptions = {
-                from : 'adrianutnnode2019@yahoo.com',
-                to: para,
-                subject: asunto,
-                text: cuerpoMensaje,
+                from : 'nt2_final@yahoo.com',
+                to: 'nt2_final@yahoo.com',
+                subject: 'test',
+                text: 'reserva test',
                 attachments : [{path:pathArchivoAdjunto}]
             }
             transporter.sendMail(mailOptions,function(err,info) {
@@ -36,4 +36,4 @@ class Email {
 
 }
 
-export {Email}
+//export default {Email}

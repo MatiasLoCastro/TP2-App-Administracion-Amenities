@@ -1,5 +1,5 @@
 import pdf from 'html-pdf';
-class Pdf {
+export class Pdf {
     crear(html, archivo) {
         return new Promise((resolve, reject) => {
             pdf.create(html).toFile(archivo, function (err, res) {
@@ -19,4 +19,4 @@ class Pdf {
         */
     }
 }
-export { Pdf };
+//export default { Pdf }

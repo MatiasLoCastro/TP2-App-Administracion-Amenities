@@ -1,6 +1,6 @@
 import pdf from 'html-pdf'
 
-class Pdf {
+export class Pdf {
 
     crear( html: string , archivo : string  ) : Promise<any> {
 
@@ -24,4 +24,4 @@ class Pdf {
 
 }
 
-export { Pdf }
+//export default { Pdf }

@@ -1,4 +1,4 @@
-import { ReservaDaoMongodb } from "../../src/repository/ReservaDaoMongodb.js";
+import { ReservaDaoMongodb } from "../../repository/ReservaDaoMongodb.js";
 
 async function reservaDao() {
     const reservaDao = new ReservaDaoMongodb()
