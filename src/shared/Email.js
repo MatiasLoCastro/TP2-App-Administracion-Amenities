@@ -9,7 +9,7 @@ export class Email {
                 secure: false,
                 auth: {
                     user: 'nt2_final@yahoo.com',
-                    pass: 'nt2Final.'
+                    pass: 'ygmrvzabdwvhritc'
                 },
                 debug: false,
                 logger: true

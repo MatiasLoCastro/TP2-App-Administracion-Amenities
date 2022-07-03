@@ -10,17 +10,17 @@ export class Email {
                 service:'yahoo',
                 secure: false,                
                 auth: {
-                    user: 'nt2_final@yahoo.com',
-                    pass: 'nt2Final.'
+                    user: 'kuitcadylanfoto@yahoo.com',
+                    pass: 'ygmrvzabdwvhritc'
                 },
                 debug: false,
                 logger: true 
             });
             const mailOptions = {
-                from : 'nt2_final@yahoo.com',
-                to: 'nt2_final@yahoo.com',
-                subject: 'test',
-                text: 'reserva test',
+                from : 'kuitcadylanfoto@yahoo.com',
+                to: para,
+                subject: asunto,
+                text: cuerpoMensaje,
                 attachments : [{path:pathArchivoAdjunto}]
             }
             transporter.sendMail(mailOptions,function(err,info) {

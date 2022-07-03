@@ -35,7 +35,7 @@ class AmenityDaoMongodb /* implements Dao<Amenity, string> */ {
             return Promise.resolve(amenities);
         });
     }
-    // si no encuentra un vehiculo, devuelve un objeto vacio
+    // si no encuentra un amenitiy, devuelve un objeto vacio
     get(clave) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this.conectarMongodb.conectar();
@@ -44,7 +44,10 @@ class AmenityDaoMongodb /* implements Dao<Amenity, string> */ {
             yield this.conectarMongodb.desconectar();
             const amenity = new Amenity(false, 0, 0, 0);
             if (findResult !== null) {
-                amenity.id = findResult.dni;
+                amenity.estaReservado = findResult.estaReservado;
+                amenity.deptoReservado = findResult.deptoReservado;
+                amenity.tipo = findResult.tipo;
+                amenity.id = findResult.id;
             }
             return Promise.resolve(amenity);
         });

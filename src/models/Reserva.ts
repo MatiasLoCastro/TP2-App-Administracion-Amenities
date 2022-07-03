@@ -1,5 +1,7 @@
 import express from "express";
 import { Amenity } from "./Amenity";
+import { ReservaDaoMongodb } from '../repository/ReservaDaoMongodb.js'
+import ReservaController from "../controllers/ReservaController";
 
 export class Reserva {
 
@@ -14,6 +16,7 @@ export class Reserva {
         this.fecha = fecha;
         this.id = id;
     }
+
 }
 
 

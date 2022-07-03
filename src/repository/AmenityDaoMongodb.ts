@@ -24,20 +24,25 @@ class AmenityDaoMongodb /* implements Dao<Amenity, string> */ {
         return Promise.resolve(amenities);
     }
 
-    // si no encuentra un vehiculo, devuelve un objeto vacio
-    async get(clave: string): Promise<Amenity> {
+
+    // si no encuentra un amenitiy, devuelve un objeto vacio
+    async get(clave: number): Promise<Amenity> {
         const db = await this.conectarMongodb.conectar();
         const collection = db.collection('amenities');
         const findResult = await collection.findOne({ id: clave });
         await this.conectarMongodb.desconectar();
         const amenity = new Amenity(false, 0, 0, 0);
         if (findResult !== null) {
-            amenity.id = findResult.dni;
+            amenity.estaReservado = findResult.estaReservado
+            amenity.deptoReservado = findResult.deptoReservado
+            amenity.tipo = findResult.tipo
+            amenity.id = findResult.id;
         }
         return Promise.resolve(amenity);
     }
 
-    async delete(element: string): Promise<boolean> {
+
+    async delete(element: number): Promise<boolean> {
         const db = await this.conectarMongodb.conectar();
         const collection = db.collection('amenities');
         const findResult = await collection.deleteOne({ id: element });

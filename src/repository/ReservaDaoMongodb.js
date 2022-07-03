@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { Reserva } from '../models/Reserva.js';
 import { ConectarMongodb } from './ConectarMongodb.js';
 import { Amenity } from '../models/Amenity.js';
+/* import { Amenity } from '../models/Amenity';  */
 class ReservaDaoMongodb /* implements Dao<Reserva, string> */ {
     constructor() {
         this.conectarMongodb = new ConectarMongodb();
@@ -36,18 +37,21 @@ class ReservaDaoMongodb /* implements Dao<Reserva, string> */ {
             return Promise.resolve(reservas);
         });
     }
-    // si no encuentra un vehiculo, devuelve un objeto vacio
+    // si no encuentra una reserva, devuelve un objeto vacio
     get(clave) {
         return __awaiter(this, void 0, void 0, function* () {
             const db = yield this.conectarMongodb.conectar();
             const collection = db.collection('reservas');
             const findResult = yield collection.findOne({ id: clave });
             yield this.conectarMongodb.desconectar();
-            const amenity = new Reserva(new Amenity(false, 0, 0, 0), "", Date.now().toLocaleString(), 0);
+            const reserva = new Reserva(new Amenity(false, 0, 0, 0), "", Date.now().toLocaleString(), 0);
             if (findResult !== null) {
-                amenity.id = findResult.dni;
+                reserva.amenity = findResult.amenity;
+                reserva.estado = findResult.estado;
+                reserva.fecha = findResult.fecha;
+                reserva.id = findResult.id;
             }
-            return Promise.resolve(amenity);
+            return Promise.resolve(reserva);
         });
     }
     delete(element) {

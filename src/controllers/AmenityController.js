@@ -24,7 +24,7 @@ class AmenityController {
     get(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const amenityDaoMongodb = new AmenityDaoMongodb();
-            const rta = yield amenityDaoMongodb.get(req.params.id);
+            const rta = yield amenityDaoMongodb.get(parseInt(req.params.id));
             if (rta.id != -1) {
                 res.status(200).send(rta);
             }
@@ -36,13 +36,17 @@ class AmenityController {
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const amenityDaoMongodb = new AmenityDaoMongodb();
-            if (yield amenityDaoMongodb.delete(req.params.id)) {
-                res.status(201).send({ mensaje: "Registro eliminado para patente: " + req.params.id });
+            if (yield amenityDaoMongodb.delete(parseInt(req.params.id))) {
+                res.status(201).send({ mensaje: "Registro eliminado para Amenity: " + req.params.id });
             }
             else {
                 res.status(400).send({ mensaje: "no se encuentran registros para " + req.params.id });
             }
         });
+    }
+    getAllAmenity(req, res) {
+        const amenityDaoMongodb = new AmenityDaoMongodb();
+        return amenityDaoMongodb.getAll();
     }
 }
 export default new AmenityController();

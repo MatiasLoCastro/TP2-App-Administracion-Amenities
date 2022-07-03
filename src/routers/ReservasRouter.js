@@ -12,6 +12,8 @@ class ReservaRouter {
         this.app.route(this.nombre + "/:id")
             .get(ReservaController.get)
             .delete(ReservaController.delete);
+        this.app.route(this.nombre + "/libres/:id")
+            .get(ReservaController.getAmenitiesLibres);
         return this.app;
     }
 }
